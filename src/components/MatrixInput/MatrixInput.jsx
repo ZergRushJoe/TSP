@@ -27,11 +27,8 @@ const MatrixInput = ({matrixData,matrixDispatchers}) =>
             <div style={InputStyle}>
                 {inputs}
             </div>
-        </div>
-        )
+        </div>)
 };
-
-
 
 MatrixInput.propTypes = {
     matrixData: PropTypes.shape(

@@ -1,17 +1,33 @@
 const defaultState = {
     numberOfNodes: 2,
-    inputs: [0,0,0,0]
+    inputs: [0,0,0,0],
+    optimum: 0,
+    approx: 0,
 };
 
 export const matrixActionTypes = {
     updateInput: 'MATRIX_UPDATE_INPUT',
-    updateMatrixSize: 'MATRIX_UPDATE_NUMBER_OF_NODES'
+    updateMatrixSize: 'MATRIX_UPDATE_NUMBER_OF_NODES',
+    calcOptimumCost: 'MATRIX_OPTIMUM_CAL_COST',
+    calcApproxCost: 'MATRIX_APPROX_CAL_COST',
 };
 
  const reducer = matrixActionTypes => (state = defaultState, action) =>
 {
     switch (action.type)
     {
+        case matrixActionTypes.calcOptimumCost:
+            return {
+                ...state,
+                inputs: [...state.inputs],
+                optimum: action.payload
+            };
+        case matrixActionTypes.calcApproxCost:
+            return {
+                ...state,
+                inputs: [...state.inputs],
+                approx: action.payload
+            };
         case matrixActionTypes.updateMatrixSize:
             return {
                 ...state,
