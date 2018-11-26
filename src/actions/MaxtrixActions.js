@@ -4,6 +4,27 @@ let calcOptimum = dispatch => matrix => {
   dispatch({ type: matrixActionTypes.calcOptimumCost, payload: 1 })
 }
 
+const calcOptimum = dispatch => matrix =>
+{
+    //run calculation here
+    const numberOfNodes =  Math.sqrt(matrix.length);
+    const transformedArray = matrix.reduce( (acc,next,index) =>
+    {
+        if(index%numberOfNodes === 0)
+            acc.push([next]);
+        else
+            acc[Math.floor(index/numberOfNodes)].push(next);
+        return acc;
+    },[]);
+
+    const formattedMatrix = transformedArray.map(i => i.map(j => parseInt(j)));
+
+    
+
+    console.log(formattedMatrix);
+
+    dispatch({type:matrixActionTypes.calcOptimumCost,payload:1});
+};
 let calcApprox = dispatch => matrix => {
 
   let kruskalResult = kruskal(createEdges(matrix))
