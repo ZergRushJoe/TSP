@@ -1,9 +1,5 @@
 import { matrixActionTypes } from '../reducers/MatrixReducer.js'
 
-let calcOptimum = dispatch => matrix => {
-  dispatch({ type: matrixActionTypes.calcOptimumCost, payload: 1 })
-}
-
 const calcOptimum = dispatch => matrix =>
 {
     //run calculation here
@@ -25,13 +21,13 @@ const calcOptimum = dispatch => matrix =>
 
     dispatch({type:matrixActionTypes.calcOptimumCost,payload:1});
 };
-let calcApprox = dispatch => matrix => {
+const calcApprox = dispatch => matrix => {
 
-  let kruskalResult = kruskal(createEdges(matrix))
+  let kruskalResult = kruskal(createEdges(matrix));
 
   //tree traversal and cost calculation for TSP here
-  let mst = JSON.stringify(kruskalResult)
-  let tspCost = GetApproxCost(kruskalResult)
+  let mst = JSON.stringify(kruskalResult);
+  let tspCost = GetApproxCost(kruskalResult);
   dispatch({ type: matrixActionTypes.calcApproxCost, payload: tspCost })
 }
 
@@ -75,9 +71,9 @@ let kruskal = edges => {
 
 //Converts matrix into an array of edges
 let createEdges = matrix => {
-  let edges = []
-  let size = Math.sqrt(matrix.length)
-  let matrixEntries = matrix.entries()
+  let edges = [];
+  let size = Math.sqrt(matrix.length);
+  let matrixEntries = matrix.entries();
 
   for(let [i,el] of matrixEntries){
     if (el > 0) {
@@ -86,12 +82,12 @@ let createEdges = matrix => {
       edges.push({ firstNode: first, secondNode: second, weight: el })
     }
   }
-  return edges
+  return edges;
 }
 //Calls recursive function isCycle to loop and check nodes
 let findCycle = graph => {
-  let nodes = Object.keys(graph)
-  let checked = {}
+  let nodes = Object.keys(graph);
+  let checked = {};
   
   for (let node of nodes) {
     if (!checked[node]) {
@@ -100,8 +96,8 @@ let findCycle = graph => {
       }
     }
   }
-  return false
-}
+  return false;
+};
 
 let isCycle = (node, checked, parent, graph) => {
   checked[node] = true

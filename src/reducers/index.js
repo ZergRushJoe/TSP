@@ -1,9 +1,9 @@
-import { combineReducers } from "redux";
+import { combineReducers } from "redux"
 
-import routeReducer from './RouteReducer';
-import MatrixReducer from "./MatrixReducer";
+import matrixReducer from "./MatrixReducer"
+import canvasReducer from "./canvasReducer"
 
 export default combineReducers({
-    route: routeReducer,
-    matrix: MatrixReducer
-});
+    matrix: matrixReducer,
+    canvas: canvasReducer
+})
