@@ -37,6 +37,10 @@ export const matrixActionTypes = {
         case matrixActionTypes.updateInput:
             const newInput = [...state.inputs];
             newInput[action.payload.index] = action.payload.value;
+            const x = Math.floor(action.payload.index/state.numberOfNodes);
+            const y = action.payload.index % state.numberOfNodes;
+            const mirrorIndex = y*state.numberOfNodes + x;
+            newInput[mirrorIndex] = action.payload.value;
             return {
                 ...state,
                 inputs: newInput

@@ -2,12 +2,12 @@ import cloneDeep from 'lodash.clonedeep'
 
 export const canvasActionTypes = {
     setRef: 'CANVAS_SET_REF'
-}
+};
 
 const defaultState = {
     ref: null,
     ctx: null,
-}
+};
 
 const canvasReducer = (types) => (state = defaultState, action) =>
 {

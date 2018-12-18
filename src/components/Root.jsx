@@ -15,9 +15,7 @@ const _Root = ({path,matrixData,matrixDispatchers,calcCost,canvasDispatchers,can
                 Optimum: {matrixData.optimum} <br/>
                 Kruskal: {matrixData.approx}
             </div>
-            <canvas ref={ref => canvasDispatchers.set(canvasData.ref)(ref)}
-                    style={{width:500,height:500}}
-                    onClick={ e => canvasDispatchers.clickEvent(canvasData.ctx)(canvasData.ref)(e) }/>
+
         </div>)
 };
 
